@@ -12,7 +12,7 @@
 function deleteDigit(n) {
   const arr = Array.from(n.toString());
   arr.splice(arr.indexOf(`${Math.min(...arr)}`), 1);
-  return arr.join('');
+  return Number(arr.join(''));
 }
 
 module.exports = deleteDigit;

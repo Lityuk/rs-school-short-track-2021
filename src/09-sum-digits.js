@@ -11,7 +11,11 @@
  *
  */
 function getSumOfDigits(n) {
-  return n % 9;
+  const sum = n % 9;
+  if (sum === 0) {
+    return 9;
+  }
+  return sum;
 }
 
 module.exports = getSumOfDigits;
