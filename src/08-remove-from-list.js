@@ -18,11 +18,15 @@
  */
 
 function removeKFromList(l, k) {
-  l.forEach((element, index) => {
-    if (element === k) {
-      l.splice(index, 1);
+  let count = l;
+  while (count !== null) {
+    if (count.value === k) {
+      count.value = count.next.value;
+      count.next = count.next.next;
+    } else {
+      count = count.next;
     }
-  });
+  }
   return l;
 }
 

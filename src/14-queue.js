@@ -13,16 +13,34 @@
 
 class Queue {
   get size() {
-    throw new Error('Not implemented');
+    this.length = 0;
+    this.head = null;
   }
 
-  enqueue(/* element */) {
-    throw new Error('Not implemented');
+  enqueue(element) {
+    const node = new ListNode(element);
+    let currentNode = this.head;
+    // 1-ый случай: пустой список
+    if (!currentNode) {
+      this.head = node;
+      this.length++;
+
+      return node;
+    }
+
+    // 2-ой случай: не пустой список
+    while (currentNode.next) {
+      currentNode = currentNode.next;
+    }
+
+    currentNode.next = node;
+
+    this.length++;
+
+    return node;
   }
 
-  dequeue() {
-    throw new Error('Not implemented');
-  }
+  dequeue() {}
 }
 
 module.exports = Queue;
