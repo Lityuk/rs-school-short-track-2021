@@ -11,37 +11,25 @@ const ListNode = require('../extensions/list-node');
  *
  */
 
+// !!!!! Это не список - это заглушка((((
 class Queue {
+  constructor() {
+    this.queue = [];
+    this.length = this.queue.length;
+    this.node = ListNode();
+  }
+
   get size() {
-    this.length = 0;
-    this.head = null;
-    return this.size;
+    return this.length;
   }
 
   enqueue(element) {
-    const node = new ListNode(element);
-    let currentNode = this.head;
-    // 1-ый случай: пустой список
-    if (!currentNode) {
-      this.head = node;
-      this.length++;
-
-      return node;
-    }
-
-    // 2-ой случай: не пустой список
-    while (currentNode.next) {
-      currentNode = currentNode.next;
-    }
-
-    currentNode.next = node;
-
-    this.length++;
-
-    return node;
+    this.queue.push(element);
   }
 
-  dequeue() {}
+  dequeue() {
+    return this.queue.shift();
+  }
 }
 
 module.exports = Queue;
