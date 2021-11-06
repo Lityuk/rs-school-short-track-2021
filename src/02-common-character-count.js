@@ -22,18 +22,15 @@
 //   return count;
 // }
 
-function getCommonCharacterCount(s1, a2) {
-  const str1 = s1.split('');
-  const str2 = a2.split('');
+function getCommonCharacterCount(s1, s2) {
   let count = 0;
-  str1.forEach((element) => {
-    let id = str2.indexOf(element);
-    if (id !== -1) {
-      str2.splice(id, 1);
+  for (let i = 0; i < s1.length; i++) {
+    if (s2.includes(s1[i])) {
       count++;
+      s2.replace(s1[i], '');
     }
-    id = str2.indexOf(element, id + 1);
-  });
+  }
+
   return count;
 }
 
